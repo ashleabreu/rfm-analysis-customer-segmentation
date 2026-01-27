@@ -1,5 +1,5 @@
 # rfm-analysis-customer-segmentation
-## Descripcion del proyecto
+## Descripción del proyecto
 Este proyecto tiene como objetivo segmentar clientes utilizando el modelo RFM(Recency, Frequency, Monetary) con el fin de identificar clientes de alto valor, clientes en riesgo y oportunidades de retención, apoyando la toma de decisiones de negocio.
 
 ---
