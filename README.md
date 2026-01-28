@@ -38,3 +38,9 @@ El ánalisis RFM permite clasificar a los clientes en función de:
 - Interpretación de datos para apoyar decisiones empresariales
 - Integración de SQL con Power BI para ánalisis visual
 
+## Código
+El Código utilizado para el análisis se encuentra en: 'sql/rfm_analysis.sql'
+
+## Visualización
+El dashboard interactivo del análisis se encuentra en la carpeta:
+'powerbi/rfm_dashboard.pbix'
