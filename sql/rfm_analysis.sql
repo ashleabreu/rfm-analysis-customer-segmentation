@@ -9,11 +9,23 @@ Herramientas:
 - SQL
 */
 
--- RFM Analysis
--- Este script calcula:
--- Recency, Frequency, Monetary
--- Asigna scores usando NTILE
--- Segmenta clientes mediante CASE WHEN
+-- Cálculo de RFM:
+-- Este script crea una tabla temporal con el cálculo de Recency, Frequency y Monetary para luego poder hacer el análisis.
+
+CREATE TEMPORARY TABLE RFM_base AS (
+SELECT CustomerID,
+		-- RECENCY 
+        DATEDIFF(MAX(invoicedate), MIN(invoicedate)) as Recency_days, -- dias de diferencia entre la primera y la ultima compra del cliente
+        -- FREQUENCY
+        COUNT(DISTINCT invoiceno) as Frequency, -- cuantas compras distintas hizo el cliente
+        -- MONETARY
+        SUM(quantity * Unitprice) as Monetary -- total_price en la tabla 
+FROM online_retail
+WHERE Customerid IS NOT NULL
+GROUP BY CustomerID); 
+
+-- RFM Análisis:
+-- Este script asigna scores usando NTILE y segmenta clientes mediante CASE WHEN.
 
 SELECT a.CustomerID,
 		a.recency_days,
